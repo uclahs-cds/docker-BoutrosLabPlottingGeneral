@@ -1,18 +1,19 @@
-ARG MINIFORGE_VERSION=22.9.0-2
-ARG UBUNTU_VERSION=20.04
+ARG MINIFORGE_VERSION=23.1.0-1
 
 FROM condaforge/mambaforge:${MINIFORGE_VERSION} AS builder
 
-# Use mamba to install tools and dependencies into /usr/local
-ARG TOOL_VERSION=X.X.X
-RUN mamba create -qy -p /usr/local \
-    -c bioconda \
-    -c conda-forge \
-    tool_name==${TOOL_VERSION}
-
 # Deploy the target tools into a base image
-FROM ubuntu:${UBUNTU_VERSION} AS final
+FROM ubuntu:20.04
 COPY --from=builder /usr/local /usr/local
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential r-base r-base-dev gfortran r-cran-rgl r-cran-curl && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install latest BPG, it's dependencies and some house-keeping packages
+RUN R -q -e 'install.packages(c("deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin","BoutrosLab.plotting.general", "dplyr", "optparse", "argparse", "reshape"))'
 
 # Add a new user/group called bldocker
 RUN groupadd -g 500001 bldocker && \
@@ -21,5 +22,5 @@ RUN groupadd -g 500001 bldocker && \
 # Change the default user to bldocker from root
 USER bldocker
 
-LABEL   maintainer="Your Name <YourName@mednet.ucla.edu>" \
-        org.opencontainers.image.source=https://github.com/uclahs-cds/<REPO>
+LABEL   maintainer="Mohammed Faizal Eeman Mootor <mmootor@mednet.ucla.edu>" \
+        org.opencontainers.image.source=https://github.com/uclahs-cds/docker-BoutrosLabPlottingGeneral
