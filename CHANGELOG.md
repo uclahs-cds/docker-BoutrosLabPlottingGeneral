@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 ### Changed
+- Update `README.md`
 - Update `metadata.yaml`
 - Update builder image to mambaforge
 - Switch to GitHub Packages registry in `CICD-base.yaml`
