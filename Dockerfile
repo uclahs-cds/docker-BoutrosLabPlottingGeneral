@@ -1,4 +1,4 @@
-ARG MINIFORGE_VERSION=23.1.0-1
+ARG MINIFORGE_VERSION=23.1.0-4
 
 FROM condaforge/mambaforge:${MINIFORGE_VERSION} AS builder
 
@@ -9,8 +9,15 @@ COPY --from=builder /usr/local /usr/local
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential r-base r-base-dev gfortran r-cran-rgl r-cran-curl && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    gfortran \
+    r-base \
+    r-base-dev \
+    r-cran-curl \
+    r-cran-rgl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install latest BPG, it's dependencies and some house-keeping packages
 RUN R -q -e 'install.packages(c("deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin","BoutrosLab.plotting.general", "dplyr", "optparse", "argparse", "reshape"))'
