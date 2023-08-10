@@ -13,19 +13,20 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 
 
 # Version
-| Tool | Version |
+| R Packages | Version |
 |------|---------|
-| BoutrosLab.plotting.general | `latest` from CRAN |
 | argparse | `latest` from CRAN |
-| optparse | `latest` from CRAN |
-| reshape | `latest` from CRAN |
+| BoutrosLab.plotting.general | `7.0.8` |
+| cluster | `3.6.3` |
+| deldir | `3.6.3` |
 | dplyr | `latest` from CRAN |
-| deldir | `latest` from CRAN |
-| Rcpp | `latest` from CRAN |
-| interp | `latest` from CRAN |
-| latticeExtra | `latest` from CRAN |
-| cluster | `latest` from CRAN |
-| hexbin | `latest` from CRAN |
+| hexbin | `3.6.3` |
+| interp | `3.6.3` |
+| latticeExtra | `3.6.3` |
+| optparse | `latest` from CRAN |
+| Rcpp | `3.6.3` |
+| reshape | `latest` from CRAN |
+
 ---
 
 ## Discussions
