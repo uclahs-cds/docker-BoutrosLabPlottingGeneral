@@ -1,4 +1,5 @@
 ARG MINIFORGE_VERSION=23.1.0-4
+ARG BPG_VERSION=7.0.8
 
 FROM condaforge/mambaforge:${MINIFORGE_VERSION} AS builder
 
@@ -21,6 +22,10 @@ RUN apt-get update && \
 
 # Install latest BPG, it's dependencies and some house-keeping packages
 RUN R -q -e 'install.packages(c("deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin","BoutrosLab.plotting.general", "dplyr", "optparse", "argparse", "reshape"))'
+
+RUN R -q -e 'install.packages(c("deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin")' && \
+    R -q -e 'install_version("BoutrosLab.plotting.general", ${BPG_VERSION})' && \
+    R -q -e 'install.packages(c("argparse", "dplyr", "optparse", "reshape"))'
 
 # Add a new user/group called bldocker
 RUN groupadd -g 500001 bldocker && \
