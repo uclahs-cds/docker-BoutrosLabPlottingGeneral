@@ -11,7 +11,7 @@ args <- parser$parse_args();
 
 bpg.version <- args$add_version;
 
-if( !(startsWith(bpg.version, 'v')) ) {
+if (!(startsWith(bpg.version, 'v'))) {
     bpg.version <- paste('v', bpg.version, sep = '')
     };
 
