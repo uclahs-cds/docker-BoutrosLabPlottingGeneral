@@ -1,12 +1,11 @@
 ARG MINIFORGE_VERSION=23.1.0-4
-ARG BPG_VERSION=7.0.8
-
 FROM condaforge/mambaforge:${MINIFORGE_VERSION} AS builder
 
 # Deploy the target tools into a base image
 FROM ubuntu:20.04
 COPY --from=builder /usr/local /usr/local
 
+ARG BPG_VERSION=7.0.8
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
@@ -36,9 +35,9 @@ RUN apt-get update && \
 COPY install_bpg.R /usr/local/bin/install_bpg.R
 
 RUN R -q -e 'install.packages(c("argparse", "dplyr", "optparse", "reshape"))' && \
-    R -q -e 'install.packages(c("devtools", "deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin")' && \
+    R -q -e 'install.packages(c("devtools", "deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin"))' && \
     chmod +x /usr/local/bin/install_bpg.R && \
-    Rscript /usr/local/bin/install_bpg.R ${BPG_VERSION}
+    Rscript /usr/local/bin/install_bpg.R -av ${BPG_VERSION}
 
 # Add a new user/group called bldocker
 RUN groupadd -g 500001 bldocker && \
