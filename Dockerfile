@@ -36,7 +36,7 @@ RUN apt-get update && \
 COPY install_bpg.R /usr/local/bin/install_bpg.R
 
 RUN R -q -e 'install.packages(c("argparse", "dplyr", "optparse", "reshape"))' && \
-    R -q -e 'install.packages(c("deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin")' && \
+    R -q -e 'install.packages(c("devtools", "deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin")' && \
     chmod +x /usr/local/bin/install_bpg.R && \
     Rscript /usr/local/bin/install_bpg.R ${BPG_VERSION}
 
