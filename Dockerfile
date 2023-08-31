@@ -1,6 +1,3 @@
-ARG MINIFORGE_VERSION=23.1.0-4
-FROM condaforge/mambaforge:${MINIFORGE_VERSION} AS builder
-
 # Deploy the target tools into a base image
 FROM ubuntu:20.04
 COPY --from=builder /usr/local /usr/local
