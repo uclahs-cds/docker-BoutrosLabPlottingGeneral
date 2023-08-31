@@ -15,17 +15,16 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 # Version
 | R Packages | Version | BPG Dependency |
 |------|---------|---------|
-| argparse | `latest` from CRAN | Yes |
 | BoutrosLab.plotting.general | `7.0.8` | Yes |
+| argparse | `latest` from CRAN | Yes |
 | cluster | `2.1.4` | Yes |
 | deldir | `1.0.9` | Yes |
 | devtools | `2.4.5` | Yes |
-| dplyr | `latest` from CRAN | No |
 | hexbin | `1.28.3` | Yes |
-| interp | `1.1.4` | Yes |
 | latticeExtra | `0.6.30` | Yes |
-| optparse | `latest` from CRAN | No |
 | Rcpp | `1.0.11` | Yes |
+| dplyr | `latest` from CRAN | No |
+| optparse | `latest` from CRAN | No |
 | reshape | `latest` from CRAN | No |
 
 ---
@@ -52,7 +51,7 @@ Please see list of [Contributors](https://github.com/uclahs-cds/docker-BoutrosLa
 
 ## License
 
-Author: Mohammed Faizal Eeman Mootor (mmootor@mednet.ucla.edu)
+Author: Mohammed Faizal Eeman Mootor
 
 docker-BoutrosLabPlottingGeneral is licensed under the GNU General Public License version 2. See the file LICENSE for the terms of the GNU GPL license.
 
