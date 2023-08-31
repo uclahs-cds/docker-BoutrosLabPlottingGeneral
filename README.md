@@ -13,19 +13,19 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 
 
 # Version
-| R Packages | Version | BPG Dependency |
+| R Packages | Version | Description |
 |------|---------|---------|
-| BoutrosLab.plotting.general | `7.0.8` | Yes |
-| argparse | `latest` from CRAN | Yes |
-| cluster | `2.1.4` | Yes |
-| deldir | `1.0.9` | Yes |
-| devtools | `2.4.5` | Yes |
-| hexbin | `1.28.3` | Yes |
-| latticeExtra | `0.6.30` | Yes |
-| Rcpp | `1.0.11` | Yes |
-| dplyr | `latest` from CRAN | No |
-| optparse | `latest` from CRAN | No |
-| reshape | `latest` from CRAN | No |
+| BoutrosLab.plotting.general | `7.0.8` | main |
+| argparse | `latest` from CRAN | dependency |
+| cluster | `2.1.4` | dependency |
+| deldir | `1.0.9` | dependency |
+| devtools | `2.4.5` | dependency |
+| hexbin | `1.28.3` | dependency |
+| latticeExtra | `0.6.30` | dependency |
+| Rcpp | `1.0.11` | dependency |
+| dplyr | `latest` from CRAN | optional |
+| optparse | `latest` from CRAN | optional |
+| reshape | `latest` from CRAN | optional |
 
 ---
 
