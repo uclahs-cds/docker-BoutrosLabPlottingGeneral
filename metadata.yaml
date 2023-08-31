@@ -1,10 +1,10 @@
 ---
 category: 'docker'
-description: 'Docker repository for Boutros Lab Plotting General'  # Description of why the repository exists
-maintainers: ['mmootor@mednet.ucla.edu']  # email address of maintainers
-languages: ['Dockerfile']  # programming languages used
-tools: ['BoutrosLabPlottingGeneral']  # Name of the tool(s) used in the Dockerfile
-version: ['X.X.X']  # Tool version number
-purpose: 'Generate publication quality plots using the Boutros Lab Plotting General docker image'  # Description of what this tool does
-references: 'https://cran.rstudio.com/web/packages/BoutrosLab.plotting.general/'  # is the tool/dependencies published, is there a confluence page
-image_name: 'boutroslabplottinggeneral'  # name of the new docker image
+description: 'Docker repository for Boutros Lab Plotting General'
+maintainers: ['mmootor@mednet.ucla.edu']
+languages: ['Dockerfile']
+tools: ['BoutrosLabPlottingGeneral']
+version: ['7.0.8']
+purpose: 'Generate publication quality plots using the Boutros Lab Plotting General docker image'
+references: 'https://cran.rstudio.com/web/packages/BoutrosLab.plotting.general/'
+image_name: 'boutroslabplottinggeneral'
