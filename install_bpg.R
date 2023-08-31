@@ -2,6 +2,11 @@ library(argparse);
 parser <- ArgumentParser();
 
 parser$add_argument(
+    '-r',
+    '--repo-name',
+    help = 'Specify BPG GitHub repo name'
+    );
+parser$add_argument(
     '-av',
     '--add-version',
     help = 'Specify version of BPG to download'
@@ -9,6 +14,7 @@ parser$add_argument(
 
 args <- parser$parse_args();
 
+bpg.repo <- args$repo_name;
 bpg.version <- args$add_version;
 
 if (!(startsWith(bpg.version, 'v'))) {
@@ -16,6 +22,6 @@ if (!(startsWith(bpg.version, 'v'))) {
     };
 
 devtools::install_github(
-    repo = 'uclahs-cds/public-R-BoutrosLab-plotting-general',
+    repo = bpg.repo,
     ref = bpg.version
     );

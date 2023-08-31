@@ -2,6 +2,7 @@
 FROM ubuntu:20.04
 COPY --from=builder /usr/local /usr/local
 
+ARG BPG_REPO='uclahs-cds/public-R-BoutrosLab-plotting-general'
 ARG BPG_VERSION=7.0.8
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -34,7 +35,7 @@ COPY install_bpg.R /usr/local/bin/install_bpg.R
 RUN R -q -e 'install.packages(c("argparse", "dplyr", "optparse", "reshape"))' && \
     R -q -e 'install.packages(c("devtools", "deldir", "Rcpp", "interp", "latticeExtra", "cluster", "hexbin"))' && \
     chmod +x /usr/local/bin/install_bpg.R && \
-    Rscript /usr/local/bin/install_bpg.R -av ${BPG_VERSION}
+    Rscript /usr/local/bin/install_bpg.R -r ${BPG_REPO} -av ${BPG_VERSION}
 
 # Add a new user/group called bldocker
 RUN groupadd -g 500001 bldocker && \
