@@ -13,7 +13,7 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 
 
 # Version
-| R Packages | Version | Description |
+| R Packages | Version | Type |
 |------|---------|---------|
 | BoutrosLab.plotting.general | `7.0.8` | main |
 | argparse | `latest` from CRAN | dependency |
