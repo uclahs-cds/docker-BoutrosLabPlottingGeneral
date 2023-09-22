@@ -7,18 +7,17 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    build-essential \
+    gfortran \
+    libcurl4-gnutls-dev \
+    libharfbuzz-dev \
+    libssl-dev \
     libxml2 \
     libxml2-dev \
-    libcurl4-gnutls-dev \
-    build-essential \
     r-base \
     r-base-dev \
-    gfortran \
-    libharfbuzz-dev \
-    r-cran-rgl \
-    git \
-    libssl-dev \
     r-cran-curl \
+    r-cran-rgl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
