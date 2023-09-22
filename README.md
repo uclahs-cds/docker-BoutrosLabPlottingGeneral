@@ -17,15 +17,13 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 |------|---------|---------|
 | BoutrosLab.plotting.general | `7.0.8` | main |
 | argparse | `latest` from CRAN | dependency |
-| cluster | `2.1.4` | dependency |
-| deldir | `1.0.9` | dependency |
-| devtools | `2.4.5` | dependency |
-| hexbin | `1.28.3` | dependency |
-| latticeExtra | `0.6.30` | dependency |
-| Rcpp | `1.0.11` | dependency |
+| pkgdepends | `latest` from CRAN | dependency |
 | dplyr | `latest` from CRAN | optional |
+| naturalsort | `latest` from CRAN | optional |
 | optparse | `latest` from CRAN | optional |
 | reshape | `latest` from CRAN | optional |
+
+The Dockerfile in this repo utilizes an R package, `pkgdepends` to recursively install all dependencies and `BoutrosLab.plotting.general`. The `pkgdepends` workflow is in the R script, `install_bpg`.
 
 ---
 
