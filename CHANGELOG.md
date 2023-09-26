@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Update `metadata.yaml` and `PULL_REQUEST_TEMPLATE.md` and replace Docker Hub with GitHub Packages in the template
 
 ## Added
+- Add `pkgdepends` to recursively install BPG and its dependencies
 - Add R wrapper `install_bpg.R` to install BPG from GitHub repo
 - Add `install_bpg.R` to `Dockerfile`
 - Add `Docker-build-release.yaml`
