@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 ARG BPG_REPO='uclahs-cds/package-BoutrosLab-plotting-general'
-ARG BPG_VERSION=7.0.8
+ARG BPG_VERSION=7.1.0
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \

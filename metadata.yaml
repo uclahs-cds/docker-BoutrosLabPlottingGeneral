@@ -4,7 +4,7 @@ description: 'Docker repository for Boutros Lab Plotting General'
 maintainers: ['mmootor@mednet.ucla.edu']
 languages: ['Dockerfile']
 tools: ['BoutrosLabPlottingGeneral']
-version: ['7.0.8']
+version: ['7.1.0']
 purpose: 'Generate publication quality plots using the Boutros Lab Plotting General docker image'
 references: 'https://cran.rstudio.com/web/packages/BoutrosLab.plotting.general/'
 image_name: 'boutroslabplottinggeneral'

@@ -9,6 +9,12 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 ### Changed
+- Update BPG `v7.0.8` to `v7.1.0`
+
+---
+
+## [7.0.8] - 2023-09-26
+### Changed
 - Update `README.md`
 - Update `metadata.yaml`
 - Update builder image to mambaforge
