@@ -7,6 +7,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    software-properties-common \
+    dirmngr \
     build-essential \
     gfortran \
     libcurl4-gnutls-dev \
@@ -14,10 +16,20 @@ RUN apt-get update && \
     libssl-dev \
     libxml2 \
     libxml2-dev \
+    wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+# add the R 4.4 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
+    add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+
+RUN apt install -y --no-install-recommends \
     r-base \
     r-base-dev \
-    r-cran-curl \
-    r-cran-rgl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
