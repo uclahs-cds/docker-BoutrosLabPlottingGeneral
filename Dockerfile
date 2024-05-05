@@ -25,9 +25,8 @@ RUN apt-get update && \
 # Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
 # add the R 4.4 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
-    add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-
-RUN apt install -y --no-install-recommends \
+    && add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
+    && apt-get install -y --no-install-recommends \
     r-base \
     r-base-dev \
     && apt-get clean \
