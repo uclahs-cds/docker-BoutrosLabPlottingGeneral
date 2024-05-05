@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 
 ARG BPG_REPO='uclahs-cds/package-BoutrosLab-plotting-general'
 ARG BPG_VERSION=7.1.0
+ARG R_BASE_VERSION=4.4.0-1.2004.0
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
@@ -27,8 +28,8 @@ RUN apt-get update && \
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
     && add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
     && apt-get install -y --no-install-recommends \
-    r-base \
-    r-base-dev \
+    r-base=${R_BASE_VERSION} \
+    r-base-dev=${R_BASE_VERSION} \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
