@@ -13,6 +13,8 @@ Docker image versioning standard [here](https://uclahs-cds.atlassian.net/wiki/sp
 
 
 # Version
+The current image `v7.1.0` is built with R `v4.4.0`.
+
 | R Packages | Version | Type |
 |------|---------|---------|
 | BoutrosLab.plotting.general | `7.1.0` | main |
