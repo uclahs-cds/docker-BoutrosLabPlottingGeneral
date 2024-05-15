@@ -3,10 +3,15 @@ FROM ubuntu:20.04
 
 ARG BPG_REPO='uclahs-cds/package-BoutrosLab-plotting-general'
 ARG BPG_VERSION=7.1.0
+ARG R_BASE_VERSION=4.4.0-1.2004.0
 ARG DEBIAN_FRONTEND=noninteractive
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    software-properties-common \
+    dirmngr \
     build-essential \
     gfortran \
     libcurl4-gnutls-dev \
@@ -14,10 +19,22 @@ RUN apt-get update && \
     libssl-dev \
     libxml2 \
     libxml2-dev \
-    r-base \
-    r-base-dev \
-    r-cran-curl \
-    r-cran-rgl \
+    wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG FINGERPRINT=E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+# add the R 4.4 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
+    && (gpg --show-keys --with-colons /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc | grep "fpr:::::::::${FINGERPRINT}:") \
+    && add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
+    && apt-get install -y --no-install-recommends \
+    r-base=${R_BASE_VERSION} \
+    r-base-dev=${R_BASE_VERSION} \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
