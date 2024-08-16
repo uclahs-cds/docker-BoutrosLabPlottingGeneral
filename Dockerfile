@@ -25,6 +25,8 @@ RUN apt-get update && \
 
 ARG FINGERPRINT=E298A3A825C0D65DFD57CBB651716619E084DAB9
 
+RUN echo "dummy checkpoint"
+
 # add the signing key (by Michael Rutter) for these repos
 # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 # Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
